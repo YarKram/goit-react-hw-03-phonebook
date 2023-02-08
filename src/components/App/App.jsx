@@ -28,9 +28,9 @@ class App extends Component {
 
     console.log(prevState);
 
-    // if (this.state.contacts !== prevState.contacts) {
+    if (this.state.contacts !== prevState.contacts) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    // }
+    }
   }
 
   onInputChange = evt => {
