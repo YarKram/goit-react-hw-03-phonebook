@@ -15,14 +15,6 @@ class App extends Component {
     filter: '',
   };
 
-  componentDidMount() {
-    console.log('Mounted');
-    console.log(JSON.parse(localStorage.getItem('contacts')));
-    this.setState({
-      contacts: JSON.parse(localStorage.getItem('contacts')),
-    });
-  }
-
   componentDidUpdate(prevProps, prevState) {
     console.log('Updated');
 
@@ -31,6 +23,12 @@ class App extends Component {
     if (this.state.contacts !== prevState.contacts) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      contacts: JSON.parse(localStorage.getItem('contacts')),
+    });
   }
 
   onInputChange = evt => {
@@ -79,7 +77,6 @@ class App extends Component {
     );
 
     console.log(this.state.contacts);
-
 
     return (
       <div style={{ marginLeft: 20 }}>
